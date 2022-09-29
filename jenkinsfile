@@ -24,7 +24,7 @@ pipeline {
             bat 'gradlew aggregate'
 
             publishHTML(target: [
-            allowMissing: false
+            allowMissing: false,
             alwaysLinkToLastBuild: true,
             keepAll:     true,
             reportName : 'Serenity',
