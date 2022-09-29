@@ -21,4 +21,6 @@ public class PlaceOrderPage {
 
     public static final Target BUTTON_VALIDATE = Target.the("Validate button").locatedBy("//button[text()='OK']");
 
+    public static final Target MESSAGE_SUCCESS_PURCHASE = Target.the("Message Thank you for your purchase!")
+            .locatedBy("//h2[text()='Thank you for your purchase!']");
 }

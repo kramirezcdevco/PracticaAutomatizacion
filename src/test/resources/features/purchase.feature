@@ -5,7 +5,7 @@ Feature: Purchase
 
   Scenario: Purchase products from the shopping car sucessfully
     Given Juan is authenticated
-    And add from laptops a Macbook air
-    And add from monitor an Apple monitor 24
+    And add from Laptops a MacBook air
+    And add from Monitors an Apple monitor 24
     When Juan makes the purchase
     Then should see the message Thank you for your purchase
