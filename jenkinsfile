@@ -18,12 +18,12 @@ pipeline {
         bat 'gradlew test aggregate'
         
         publishHTML(target: [
+        allowMissing: false
+        alwaysLinkToLastBuild: true,
+        keepAll:     true,
         reportName : 'Serenity',
         reportDir:   'target/site/serenity',
         reportFiles: 'index.html',
-        keepAll:     true,
-        alwaysLinkToLastBuild: true,
-        allowMissing: false
         ])
       }
     }
