@@ -4,7 +4,8 @@ buildscript {
         mavenLocal()
     }
     ext {
-        junitVersion = '5.9.0'
+        //junitVersion = '5.9.0'
+        junitVersion = '4.13.2'
 
         serenityGradlePlugingVersion = '2.4.34'
         serenityCucumberVersion= '3.2.5'
@@ -32,25 +33,29 @@ repositories {
 }
 
 dependencies {
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
     testImplementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
     testImplementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
     testImplementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
 
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.ext.junitVersion"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$rootProject.ext.junitVersion"
-
+    //testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.ext.junitVersion"
+    //testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$rootProject.ext.junitVersion"
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
 
     testImplementation "org.slf4j:slf4j-simple:$rootProject.ext.sl4jVersion"
 
     testImplementation "org.assertj:assertj-core:$rootProject.ext.assertjVersion"
 
 }
-
+/*
 test {
     useJUnitPlatform()
-}
+}*/
 
 tasks.withType(Test){
     systemProperties = System.properties as Map<String, String>
