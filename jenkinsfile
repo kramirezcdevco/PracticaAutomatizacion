@@ -16,13 +16,15 @@ pipeline {
     stage('test') {
       steps {
         bat 'gradlew test serenity:aggregate'
-        publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportName : 'Serenity Report',
-            reportDir:   'target/site/serenity',
-            reportFiles: 'index.html'
+        
+        publishHTML(target: [
+        reportName : 'Serenity',
+        reportDir:   'target/site/serenity',
+        reportFiles: 'index.html',
+        keepAll:     true,
+        alwaysLinkToLastBuild: true,
+        allowMissing: false
+        ])
       }
     }
   }
