@@ -30,8 +30,6 @@ public class PurchaseStepDefinitions {
 
     private DemoBlazeHomePage homePage;
     private Purchaser aPurchaser;
-
-
     @Before
     public void setTheStage(){
         OnStage.setTheStage(new OnlineCast());
@@ -65,7 +63,6 @@ public class PurchaseStepDefinitions {
 
     }
 
-
     @Then("should see the message Thank you for your purchase")
     public void shouldSeeTheMessageThankYouForYourPurchase() {
         theActorInTheSpotlight().should(seeThat(the(MENU_LOG_OUT), isVisible()));
@@ -74,5 +71,4 @@ public class PurchaseStepDefinitions {
                 Click.on(BUTTON_VALIDATE)
         );
     }
-
 }

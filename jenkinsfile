@@ -25,7 +25,32 @@ pipeline {
             alwaysLinkToLastBuild: true,
             allowMissing: false
             ])
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                // some block
+            }
           }
     }
+     stage('test') {
+          steps {
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+              bat 'gradlew test'
+            }
+          }
+     }
+
+      stage('aggregate') {
+        steps {
+          bat 'gradlew aggregate'
+
+          publishHTML(target: [
+          allowMissing: false,
+          alwaysLinkToLastBuild: true,
+          keepAll:     true,
+          reportName : 'Serenity',
+          reportDir:   'target/site/serenity',
+          reportFiles: 'index.html',
+          ])
+        }
+      }
   }
 }
