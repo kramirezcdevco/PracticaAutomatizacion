@@ -15,7 +15,7 @@ pipeline {
 
     stage('test') {
       steps {
-        bat 'gradlew test serenity:aggregate'
+        bat 'gradlew test aggregate'
         
         publishHTML(target: [
         reportName : 'Serenity',
